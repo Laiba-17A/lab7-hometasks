@@ -1,11 +1,11 @@
 #include <stdio.h>
 int main(){
-    int len,j,x,w;
+    int len,j,x,w,y,z;
     printf("enter the length of array");
     scanf("%d",&len);
     int i;
     int arr[len];
-    int repeat[len];
+    int repeat[len];//to store the repeated elements
     int count[len];
     for(i=0;i<len;i++)
     {
@@ -13,20 +13,19 @@ int main(){
       scanf("%d",&arr[i]);
     }
     //initializing all elements count to 0 initially
-   for (x=0;i<len;x++){
+   for (x=0;x<len;x++){
         count[x]=0;
     }
     //count occurence
-    for(x=0;i<len;x++){
-        if(arr[x]>=0 && arr[x]<len){
-        count[arr[x]]++;
-        }
-    }
-    //find repeated elements
-    j=-1;
     for(x=0;x<len;x++){
+        count[arr[x]]++;
+    }
+    j=-1;
+    //find repeated elements
+    for(x=0; x<len ;x++){
         if (count[x]>1){
-            repeat[j++]=x;
+            j=j+1;
+            repeat[j]=x;
         }
     }
     //displaying output
@@ -43,6 +42,7 @@ int main(){
          }
          printf("and %d is repeated more than once",repeat[j]);
      } 
+    //printf("%d\n %d \n %d",arr[0],repeat[0],count[1]);
      
     return 0;
 }
